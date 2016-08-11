@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  
   root 'storefront#all_items'
+
+  post 'add_to_cart' => 'cart#add_to_cart'
+
+  get 'view_order' => 'cart#view_order'
+
+  get 'checkout' => 'cart#checkout'
 
   get 'categorical' => 'storefront#items_by_category'
 
@@ -12,6 +18,9 @@ Rails.application.routes.draw do
 
   get 'storefront/items_by_brand'
 
+  resources :orders
+  resources :line_items
+  devise_for :users
   resources :categories
   resources :products
   # The priority is based upon order of creation: first created -> highest priority.
