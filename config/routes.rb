@@ -12,11 +12,8 @@ Rails.application.routes.draw do
 
   get 'branding' => 'storefront#items_by_brand'
 
-  get 'storefront/all_items'
+  post 'order_complete' => 'cart#order_complete'
 
-  get 'storefront/items_by_category'
-
-  get 'storefront/items_by_brand'
 
   resources :orders
   resources :line_items

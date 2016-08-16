@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    before_filter :authenticate_user!, except: [:show]
   end
 
   # GET /products/new
